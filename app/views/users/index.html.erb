@@ -1,0 +1,24 @@
+<h1>Lista de usuarios</h1>
+
+<h2>
+	<%= notice %>
+</h2>
+
+<table>
+	<tr>
+		<th>Nombre del usuario</th>
+		<th>Email</th>
+		<th>Acciones</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+			<td>
+				<%= link_to 'Ver detalle', user %> |
+				<%= link_to 'Editar usuario', edit_user_path(user) %> |
+				<%= link_to 'Eliminar', user, method: :delete, data: {confirm: 'Deseas eliminar el usuario'} %>
+			</td>
+		</tr>
+	<% end %>
+</table>
